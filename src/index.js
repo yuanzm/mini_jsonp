@@ -1,6 +1,6 @@
 /**
  * @author: zimyuan
- * @last-edit-date:2016-10-04
+ * @last-edit-date:2016-10-05
  */
 
 /**
@@ -70,9 +70,9 @@ function cleanup(id, script, timer) {
  * @param {Function} noop
  * @return {Function}
  */
-export function jsonp(url, params = {}, func = noop, opts = {
+export default function jsonp(url, params = {}, func = noop, opts = {
         prefix    : '__jsonp__',
-        paramName : 'fun',
+        paramName : 'callback',
         timeout   : 6000,
         className : '__jsonp__'
     }) {

@@ -13,13 +13,16 @@
     <meta name="wxm:link" content="">
 </head>
 <body>
-
+    <p id="result"></p>
 </body>
-<script type="text/javascript" src="../dist/index.js"></script>
+<script type="text/javascript" src="dist/mini_jsonp.js"></script>
 <script type="text/javascript">
-    var es6template = new ES6Template();
-
-    es6template.sayName();
-
+    miniJsonp.default(
+        '/testjsonp',
+        {foo: 'bar'},
+        function(data) {
+            document.getElementById('result').innerHTML = data.result;
+        }
+    );
 </script>
 </html>

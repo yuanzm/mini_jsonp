@@ -13,8 +13,8 @@ module.exports = {
     output: {
         path           : __dirname + '/dist',
         publicPath     : '/',
-        filename       : './index.js',
-        library        : 'ES6Template',
+        filename       : './mini_jsonp.js',
+        library        : 'miniJsonp',
         libraryTarget  : 'umd',
         umdNamedDefine : true
     },
