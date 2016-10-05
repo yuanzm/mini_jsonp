@@ -17,12 +17,13 @@
 </body>
 <script type="text/javascript" src="dist/mini_jsonp.js"></script>
 <script type="text/javascript">
-    miniJsonp.default(
-        '/testjsonp',
+    miniJsonp(
+        'http://192.168.0.106:3000/testJsonp',
         {foo: 'bar'},
         function(data) {
             document.getElementById('result').innerHTML = data.result;
         }
     );
+</script>
 </script>
 </html>

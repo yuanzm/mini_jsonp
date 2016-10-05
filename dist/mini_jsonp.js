@@ -66,8 +66,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.mapToStr = mapToStr;
-	exports.uuid = uuid;
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 	exports.default = jsonp;
 	/**
 	 * @author: zimyuan
@@ -77,7 +78,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Map json to string with given spilters.
 	 * 
-	 * @param {Funtcion} map
+	 * @param {Object} map
 	 * @param {String} spliter1: spliter in key and value
 	 * @param {String} spliter2: spliter in different key and value
 	 * @return {String}
@@ -85,6 +86,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	function mapToStr(map) {
 	    var spliter1 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '&';
 	    var spliter2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '=';
+
+	    if ((typeof map === 'undefined' ? 'undefined' : _typeof(map)) !== 'object') throw "IllegalArgumentException: map is not an object.";
 
 	    try {
 	        var arr = [];
@@ -153,7 +156,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        className: '__jsonp__'
 	    };
 
-
 	    var cbkName = uuid(opts.prefix);
 	    var target = document.head || document.getElementsByTagName('script')[0];
 
@@ -186,6 +188,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (window[cbkName]) cleanup(cbkName, script, timer);
 	    };
 	}
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ])

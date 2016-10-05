@@ -6,12 +6,15 @@
 /**
  * Map json to string with given spilters.
  * 
- * @param {Funtcion} map
+ * @param {Object} map
  * @param {String} spliter1: spliter in key and value
  * @param {String} spliter2: spliter in different key and value
  * @return {String}
  */
-export function mapToStr(map, spliter1 = '&', spliter2 = '=') {
+function mapToStr(map, spliter1 = '&', spliter2 = '=') {
+    if ( typeof map !== 'object' )
+        throw "IllegalArgumentException: map is not an object.";
+
     try {
         let arr = [];
 
@@ -32,7 +35,7 @@ export function mapToStr(map, spliter1 = '&', spliter2 = '=') {
  * @param {String} prefix
  * @return {String}
  */
-export function uuid(prefix = '') {
+function uuid(prefix = '') {
     return prefix + 'xxxx4xxxyxxxx'.replace(/[xy]/g, function(c) {
         let r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
         return v.toString(16);
@@ -76,7 +79,6 @@ export default function jsonp(url, params = {}, func = noop, opts = {
         timeout   : 6000,
         className : '__jsonp__'
     }) {
-
     let cbkName = uuid( opts.prefix );
     let target = document.head || document.getElementsByTagName('script')[0];
             
@@ -107,7 +109,6 @@ export default function jsonp(url, params = {}, func = noop, opts = {
     script.src       = url;
     script.className = opts.className;
     target.parentNode.insertBefore(script, target);
-
 
     return function() {
         if ( window[cbkName] )

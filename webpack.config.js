@@ -1,6 +1,6 @@
 /**
  * @author: addyxu;zimyuan;
- * @last-edit-date: 2016-08-18
+ * @last-edit-date: 2016-10-05
  */
 
 var webpack = require('webpack');

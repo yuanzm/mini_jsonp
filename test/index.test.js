@@ -1,11 +1,7 @@
 import should           from 'should';
 import sinon            from 'sinon';
 import * as shouldSinon from 'should-sinon';
-import {
-	mapToStr,
-	uuid,
-	jsonp
-} from '../src/index';
+import jsonp from '../src/index';
 
 function removeAllScript() {
 	// clear all jsonp script
@@ -24,36 +20,6 @@ function getJsonpScript() {
 }
 
 describe('jsonp--test', () => {
-	describe('mapToStr', () => {
-		it ('should map json to string correctlly', () => {
-			let a = {
-				foo  : 'bar'
-			};
-
-			let b = {
-				foo  : 'bar',
-				foo2 : 'bar2'
-			};
-
-			mapToStr(a).should.equal('foo=bar');			
-			mapToStr(b).should.equal('foo=bar&foo2=bar2');
-		});
-	});
-
-	describe('uuid', () => {
-		it ('should generate different uuids', () => {
-			let id1 = uuid();
-			let id2 = uuid();
-
-			id1.should.not.equal(id2);
-		});
-
-		it ('should generate uuid with length of 13', () => {
-			let id1 = uuid();
-			id1.should.have.lengthOf(13);
-		});
-	});
-
 	describe('jsonp', ()=> {
 		let url = 'http://foo.com/';
 
